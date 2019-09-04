@@ -17,7 +17,7 @@ var randomPictureNum = pictureNum[Math.floor(Math.random() * pictureNum.length)]
 
 function tweetImg() {
     //画像の読み込み
-    const imgData = fs.readFileSync('img/' + randomPictureNum + '.jpg', { encoding: 'base64' }); //投稿画像
+    const imgData = fs.readFileSync('img/' + randomPictureNum + /.jpg/i, { encoding: 'base64' }); //投稿画像
 
     //読み込んだ画像のアップロード
     twitter.post('media/upload', { media_data: imgData }, function (err, tweets, response) {
