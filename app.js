@@ -1,6 +1,5 @@
 'use strict';
 const Twit = require('twit');
-const cron = require('cron').CronJob;
 const fs = require('fs');
 
 const twitter = new Twit({
@@ -39,11 +38,4 @@ function tweetImg() {
     });
 };
 
-const cronJob = new cron({
-    cronTime: '00 0 * * *', //毎日0時に実行
-    start: true, // newした後即時実行するかどうか
-    onTick: function(){
-        tweetImg();
-    }
-});
 tweetImg();
